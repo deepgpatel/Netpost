@@ -13,9 +13,17 @@ class SubjectsController < ApplicationController
   end
 
   def create
-    @subject = Subject.create(subject_params)
+    @subject = Subject.new(subject_params)
 
-    redirect_to subject_path(@subject)
+    if @subject.valid?
+      @subject.save
+
+      redirect_to subject_path(@subject)
+    else
+
+      render :new
+    end
+
   end
 
   def edit

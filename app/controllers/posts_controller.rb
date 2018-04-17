@@ -11,12 +11,20 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
 
-    redirect_to post_path(@post)
+    if @post.valid?
+      @post.save
+
+      redirect_to post_path(@post)
+    else
+
+      render :new
+    end
   end
 
   def edit
@@ -24,6 +32,12 @@ class PostsController < ApplicationController
   end
 
   def update
+    @comment = Comment.new(comment_params)
+    @comment.post_id = @post.id
+    @comment.user_id = 1
+    # TODO add actual user_id
+    @comment.save
+    @post.comments << @comment
     redirect_to post_path(@post)
   end
 
@@ -35,7 +49,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content)
-    
+  end
+
+  def comment_params
+    params.require(:comment).permit(:content)
   end
 
   def set_post
