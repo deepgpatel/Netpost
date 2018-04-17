@@ -1,1 +1,33 @@
 <h1>User</h1>
+
+<h2>Subjects</h2></br>
+<% if !@user.subjects.empty? %>
+  <% @user.subjects.each do |subject| %>
+  <li><%= link_to subject.title, subject %></li></br>
+  <% end %>
+<% else %>
+  <%= link_to 'All Subjects', subjects_path %>
+<% end%>
+
+<button><%= link_to 'Create Subject', new_subject_path %></button>
+
+<h2>Posts</h2></br>
+<% if !@user.posts.empty? %>
+  <% @user.posts.each do |post| %>
+  <li><%= link_to post.title, post %></li>
+  <% end %>
+<% else %>
+  <%="You don't have any posts"%>
+<% end%>
+
+<h2>Comments</h2></br>
+<% if !@user.comments.empty? %>
+  <% @user.comments.each do |comment| %>
+  <li><%= comment.content%></li>
+  <% end %>
+<% else %>
+  <%="You don't have any posts"%>
+<% end%>
+
+
+

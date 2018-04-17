@@ -1,1 +1,7 @@
-<p>There is nothing here for now</p>
+<div><h2><%= @subject.title %></h2></div>
+
+<div><button><%= link_to "Create New Post", new_post_path %></button></div>
+<% @subject.posts.each do |post| %>
+  <%= link_to post.title, post %></br>
+<% end %>
+

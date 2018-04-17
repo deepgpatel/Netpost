@@ -1,4 +1,8 @@
 <h1>Subjects</h1>
-<%= @subjects.each do |subject| %>
-<%= link_to subject.title, subject_path(@subject) %>
+
+#  <%= collection_check_boxes(:user, :subject_ids, Subject.all, :id, :title) %>
+
+
+<% @subjects.each do |subject| %>
+<li><%= link_to subject.title, subject_path(subject) %></li>
 <% end %>
