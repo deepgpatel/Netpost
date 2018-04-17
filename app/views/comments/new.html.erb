@@ -1,8 +1,8 @@
 <h1>New Comment Form</h1>
 <%= form_for(@comment) do |f| %>
 
-  Content: <%= f.text_field :content %><br>
+  Comment: <%= f.text_area :content %><br>
 
-  <%= f.submit "Submit New Post" %><br>
+  <%= f.submit "Submit New Comment" %><br>
 
   <% end %>

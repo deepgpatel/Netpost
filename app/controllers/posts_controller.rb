@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def new
@@ -23,7 +24,6 @@ class PostsController < ApplicationController
   end
 
   def update
-
     redirect_to post_path(@post)
   end
 
@@ -35,6 +35,7 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content)
+    
   end
 
   def set_post
