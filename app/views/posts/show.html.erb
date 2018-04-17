@@ -3,12 +3,11 @@
 
 
 <%= form_for @comment, url: post_path(@post), method: "patch" do |f| %>
-  Add Comment: <%= f.text_area :content %> 
+  Add Comment: <%= f.text_area :content %>
   <%= f.submit %>
   <% end %>
+
 
  <% @post.comments.each do |comment| %>
    <%= comment.content %>
  <% end %>
-
- 
