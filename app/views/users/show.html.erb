@@ -29,6 +29,8 @@
   <%="You don't have any posts"%>
 <% end%>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,12 +94,15 @@
       <div class="well">
         <p><a href="#">Interests</a></p>
         <p>
-          <span class="label label-default">News</span>
-          <span class="label label-primary">W3Schools</span>
-          <span class="label label-success">Labels</span>
-          <span class="label label-info">Football</span>
-          <span class="label label-warning">Gaming</span>
-          <span class="label label-danger">Friends</span>
+        <% @user.subjects.each do |subject| %>
+          <span class="label label-default"><%= subject.title %></span>
+          <span class="label label-primary"><%= subject.title %></span>
+          <span class="label label-success"><%= subject.title %></span>
+          <span class="label label-info"><%= subject.title %></span>
+          <span class="label label-warning"><%= subject.title %></span>
+          <span class="label label-danger"><%= subject.title %></span>
+          <% end %>
+        <%= link_to 'Create Topic', new_subject_path %>
         </p>
       </div>
       <div class="alert alert-success fade in">
