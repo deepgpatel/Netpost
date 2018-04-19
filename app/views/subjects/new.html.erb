@@ -1,1 +1,9 @@
-# do not need right now
+<h1>Create New Topic</h1>
+
+<%= form_for(@subject) do |f| %>
+
+  Title: <%= f.text_field :title %><br>
+
+  <%= f.submit "Submit New Topic" %><br>
+
+  <% end %>

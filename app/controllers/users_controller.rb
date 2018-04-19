@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def new
@@ -30,6 +30,8 @@ class UsersController < ApplicationController
   end
 
   def update
+    # byebug
+    @user.subjects << Subject.find(params[:subject_id])
 
     redirect_to user_path(@user)
   end
@@ -37,6 +39,10 @@ class UsersController < ApplicationController
   def delete
     @user.delete
   end
+
+  # def follow_subject
+  # byebug
+  # end
 
   private
 
@@ -47,4 +53,6 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
+
 end
