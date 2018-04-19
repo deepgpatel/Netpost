@@ -1,5 +1,5 @@
 class SubjectsController < ApplicationController
-  before_action :set_subject, only: [:show, :edit, :update, :delete]
+  before_action :set_subject, only: [:show, :edit, :update, :delete, :unfollow]
   # before_action :set_user, only: [:show]
 
   def index
@@ -29,13 +29,19 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-
+    puts "arb"
   end
-
+  
   def update
     
-
+    
     redirect_to subject_path(@subject)
+  end
+  
+  def unfollow
+    # binding.pry
+    current_user.subjects.delete(@subject)
+    redirect_to user_path(@user)
   end
 
   def delete
@@ -52,7 +58,5 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
   end
 
-  def set_user
-    @user = User.find()
-  end
+  
 end

@@ -1,8 +1,8 @@
-<h1>User</h1>
+<h1><%= current_user.username if current_user %></h1>
 
 <h2>Subjects</h2></br>
-<% if !@user.subjects.empty? %>
-  <% @user.subjects.each do |subject| %>
+<% if !current_user.subjects.empty? %>
+  <% current_user.subjects.each do |subject| %>
   <li><%= link_to subject.title, subject %></li></br>
   <% end %>
 <% else %>
@@ -12,8 +12,8 @@
 <button><%= link_to 'Create Topic', new_subject_path %></button>
 
 <h2>Posts</h2></br>
-<% if !@user.posts.empty? %>
-  <% @user.posts.each do |post| %>
+<% if !current_user.posts.empty? %>
+  <% current_user.posts.each do |post| %>
   <li><%= link_to post.title, post %></li>
   <% end %>
 <% else %>
@@ -21,8 +21,8 @@
 <% end%>
 
 <h2>Comments</h2></br>
-<% if !@user.comments.empty? %>
-  <% @user.comments.each do |comment| %>
+<% if !current_user.comments.empty? %>
+  <% current_user.comments.each do |comment| %>
   <li><%= comment.content%></li>
   <% end %>
 <% else %>
@@ -30,11 +30,11 @@
 <% end%>
 
 
-
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><%= @user.name %></title>
+  <title><%= current_user.name %></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -63,7 +63,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/users">Home</a></li>
+        <li class="active"><a href="current_users">Home</a></li>
         <li><a href="/subjects">Subjects</a></li>
         <li><a href="/post">Top</a></li>
       </ul>
@@ -78,7 +78,7 @@
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphiconcurrent_user"></span> My Account</a></li>
       </ul>
     </div>
   </div>
@@ -88,13 +88,13 @@
   <div class="row">
     <div class="col-sm-3 well">
       <div class="well">
-        <p><%= link_to "My Profile", @user %></p>
+        <p><%= link_to "My Profile", current_user %></p>
         <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
       </div>
       <div class="well">
         <p><a href="#">Interests</a></p>
         <p>
-        <% @user.subjects.each do |subject| %>
+        <% current_user.subjects.each do |subject| %>
           <span class="label label-default"><%= subject.title %></span>
           <span class="label label-primary"><%= subject.title %></span>
           <span class="label label-success"><%= subject.title %></span>
@@ -206,3 +206,4 @@
 
 </body>
 </html>
+-->

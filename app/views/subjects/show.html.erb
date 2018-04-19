@@ -1,6 +1,10 @@
 <div><h2><%= @subject.title %></h2></div>
 
-<%= button_to("Follow", user_path(1), :method => :patch, params: {subject_id: @subject.id}) %>
+ <% if current_user.subjects.include?(@subject) %>
+  <%= button_to("Unfollow", unfollow_subject_path, :method => :delete, params: {subject_id: @subject.id}) %>
+<% else %>
+  <%= button_to("Follow", user_path(current_user), :method => :patch, params: {subject_id: @subject.id}) %>
+<% end %>
 
 
 <div><button><%= link_to "Home", user_url %></button></div>
