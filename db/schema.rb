@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417190349) do
+ActiveRecord::Schema.define(version: 20180418150612) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180417190349) do
     t.integer "user_id"
     t.integer "votable_id"
     t.string "votable_type"
-    t.boolean "rank"
+    t.string "rank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

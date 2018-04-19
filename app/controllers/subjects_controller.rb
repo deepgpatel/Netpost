@@ -1,11 +1,13 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :delete]
+  # before_action :set_user, only: [:show]
 
   def index
     @subjects = Subject.all
   end
 
   def show
+
   end
 
   def new
@@ -31,6 +33,7 @@ class SubjectsController < ApplicationController
   end
 
   def update
+    
 
     redirect_to subject_path(@subject)
   end
@@ -47,5 +50,9 @@ class SubjectsController < ApplicationController
 
   def set_subject
     @subject = Subject.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find()
   end
 end

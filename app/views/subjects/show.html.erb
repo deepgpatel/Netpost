@@ -1,7 +1,13 @@
 <div><h2><%= @subject.title %></h2></div>
 
+<%= button_to("Follow", user_path(1), :method => :patch, params: {subject_id: @subject.id}) %>
+
+
+<div><button><%= link_to "Home", user_url %></button></div>
 <div><button><%= link_to "Create New Post", new_post_path %></button></div>
 <% @subject.posts.each do |post| %>
   <%= link_to post.title, post %></br>
-<% end %>
 
+
+
+<% end %>
