@@ -9,7 +9,7 @@
   <%= link_to 'All Subjects', subjects_path %>
 <% end%>
 
-<button><%= link_to 'Create Topic', new_subject_path %></button>
+<button class="ui button"><%= link_to 'Create Topic', new_subject_path %></button>
 
 <h2>Posts</h2></br>
 <% if !current_user.posts.empty? %>
