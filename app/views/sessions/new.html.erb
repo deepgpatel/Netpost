@@ -1,7 +1,10 @@
-<h1>Hi</h1>
+<h1 class="ui center aligned icon header">
+  <i class="circular users icon"></i>
+  Please Sign In
+</h1>
 
 <%= form_for :session, url: new_session_path do |f| %>
 
-<%= f.text_field :username %>
-<%= f.submit "Login" %>
+<div align="center"><%= f.text_field :username %></div>
+<div align="center"><%= f.submit "Login" %></div>
 <% end %>

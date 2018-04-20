@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def update
     @comment = Comment.new(comment_params)
     @comment.post_id = @post.id
-    @comment.user_id = 1
+    @comment.user_id = current_user
     # TODO add actual user_id
     @comment.save
     @post.comments << @comment

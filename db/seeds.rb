@@ -9,8 +9,11 @@
   u = User.create(name: Faker::Name.name, username: Faker::DragonBall.character)
   po = Post.create(title: Faker::Book.title, content: Faker::Hacker.say_something_smart, user: u, subject_id:rand(1..4))
   subjects = Subject.create([{title: "Finance"}, {title: "Politics"}, {title: "Dark Humor"}, {title: "Fitness"}])
-  co = Comment.create(content: Faker::SiliconValley.quote, post: po, user: u)
-  Vote.create(rank: "like", votable: po, votable_type: "Post", user_id:rand(1..5))
-  Vote.create(rank: "dislike", votable: co, votable_type: "Comment", user_id:rand(1..5))
+  co = Comment.create(content: Faker::HowIMetYourMother.quote, post: po, user: u)
+  com = Comment.create(content: Faker::HowIMetYourMother.quote, post: po, user: u)
+  # Vote.create(rank: "like", votable: po, votable_type: "Post", user_id:rand(1..5))
+  # Vote.create(rank: "dislike", votable: co, votable_type: "Comment", user_id:rand(1..5))
   u.subjects << subjects
+  # co.user << u
+  # u.comments << co
 end

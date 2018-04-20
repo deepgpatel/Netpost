@@ -1,16 +1,19 @@
-<h1>New User Form</h1>
+<h1 class="ui center aligned icon header">
+  <i class="circular users icon"></i>
+  New User Form
+</h1>
 
 <%= form_for(@user) do |f| %>
 
-  <%= f.label :name  %>
-  <%= f.text_field :name %><br>
+  <div align="center"><%= f.label :name  %></div>
+  <div align="center"><%= f.text_field :name %><br></div>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
+  <div align="center"><%= f.label :username %></div>
+  <div align="center"><%= f.text_field :username %><br></div>
 
-  <%= f.label :password %>
-  <%= f.text_field :password %><br>
+  <div align="center"><%= f.label :password %></div>
+  <div align="center"><%= f.text_field :password %><br></div>
 
-  <%= f.submit "Create Account" %><br>
+  <div align="center"><%= f.submit "Create Account" %><br></div>
 
   <% end  %>

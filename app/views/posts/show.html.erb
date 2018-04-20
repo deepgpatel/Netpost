@@ -1,13 +1,16 @@
 <h3><%= @post.title %></h3>
 <p><%= @post.content %></p>
 
+<div><button class="ui button"><%= link_to "Home", user_url %></button></div>
 
 <%= form_for @comment, url: post_path(@post), method: "patch" do |f| %>
   Add Comment: <%= f.text_area :content %>
-  <%= f.submit %>
+  <%= f.submit %><br>
   <% end %>
-
+<br>
+<br>
+<br>
 
  <% @post.comments.each do |comment| %>
-   <%= comment.content %>
+   <li><%= comment.content %><li><br>
  <% end %>

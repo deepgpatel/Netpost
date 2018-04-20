@@ -1,9 +1,21 @@
-<h1><%= current_user.username if current_user %></h1>
+<div class="item">
+  <div class="content">
+    <div class="ui sub header">
+      <div align="center"><h1><%= current_user.username if current_user %></h1></div>
+    </div>
+  </div>
+</div>
 
 <h2>Subjects</h2></br>
+
+
+<div class="ui list">
+
 <% if !current_user.subjects.empty? %>
   <% current_user.subjects.each do |subject| %>
-  <li><%= link_to subject.title, subject %></li></br>
+  <div class="item">
+  <h3><%= link_to subject.title, subject %></h3></br>
+  </div>
   <% end %>
 <% else %>
   <%= link_to 'All Subjects', subjects_path %>
@@ -14,7 +26,9 @@
 <h2>Posts</h2></br>
 <% if !current_user.posts.empty? %>
   <% current_user.posts.each do |post| %>
-  <li><%= link_to post.title, post %></li>
+  <div class="item">
+    <h3><%= link_to post.title, post %></h3>
+  </div>
   <% end %>
 <% else %>
   <%="You don't have any posts"%>
@@ -23,12 +37,15 @@
 <h2>Comments</h2></br>
 <% if !current_user.comments.empty? %>
   <% current_user.comments.each do |comment| %>
-  <li><%= comment.content%></li>
+  <div class="item">
+    <h3><%= comment.content%></h3>
+  </div>
   <% end %>
 <% else %>
   <%="You don't have any posts"%>
 <% end%>
 
+</div>
 
 <!--
 <!DOCTYPE html>
