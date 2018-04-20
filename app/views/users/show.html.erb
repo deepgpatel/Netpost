@@ -17,21 +17,25 @@
   <h3><%= link_to subject.title, subject %></h3></br>
   </div>
   <% end %>
+  <%= current_user.count_subjects %>
 <% else %>
   <%= link_to 'All Subjects', subjects_path %>
-<% end%>
+<% end%><br><br>
 
 <button class="ui button"><%= link_to 'Create Topic', new_subject_path %></button>
+<button class="ui button"><%= link_to 'All Subjects', subjects_path %></button>
 
 <h2>Posts</h2></br>
 <% if !current_user.posts.empty? %>
   <% current_user.posts.each do |post| %>
   <div class="item">
-    <h3><%= link_to post.title, post %></h3>
+    <h3><%= link_to post.title, post %></h3
+       <%= current_user.count_post %>
   </div>
   <% end %>
+  <%= current_user.count_post%>
 <% else %>
-  <%="You don't have any posts"%>
+<%= current_user.count_post %>
 <% end%>
 
 <h2>Comments</h2></br>
@@ -41,8 +45,9 @@
     <h3><%= comment.content%></h3>
   </div>
   <% end %>
+  <%= current_user.count_comments%>
 <% else %>
-  <%="You don't have any posts"%>
+<%= current_user.count_comments%>
 <% end%>
 
 </div>
